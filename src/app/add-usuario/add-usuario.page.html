@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="Usuarios()">
+      <ion-icon name="arrow-back" class="cursor-hand"></ion-icon>
+    </ion-buttons>
+    <ion-title>Adicionar Usuário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+
+    <ion-item>
+      <ion-input label="Nome" labelPlacement="stacked" autofocus="true" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="E-mail" labelPlacement="stacked" type="email" errorText="email inválido" ngModel email
+        [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="CPF" labelPlacement="stacked" autofocus="true" [(ngModel)]="cpf"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Senha" labelPlacement="stacked" type="password" [(ngModel)]="senha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Cargo" label-placement="stacked">
+        <ion-select-option value="administrador">Administrador</ion-select-option>
+        <ion-select-option value="recepcionista">Recepcionista</ion-select-option>
+        <ion-select-option value="garçom">Garçom</ion-select-option>
+        <ion-select-option value="tela">Tela</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-button *ngIf="!id" color="danger" expand="block" (click)="cadastrar()">
+      Salvar
+    </ion-button>
+
+    <ion-button *ngIf="id" color="warning" expand="block" (click)="editar()">
+      Editar
+    </ion-button>
+
+  </ion-list>
+
+</ion-content>
