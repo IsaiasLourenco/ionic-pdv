@@ -11,9 +11,10 @@ import { APIs } from '../../services/api'
   styleUrls: ['./add-usuario.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
+  providers: [APIs] 
 })
 export class AddUsuarioPage implements OnInit {
-
+  
   nome: string = "";
   cpf: string = "";
   email: string = "";
@@ -21,7 +22,7 @@ export class AddUsuarioPage implements OnInit {
   cargo: string = "";
   id: string = "";
 
-
+  
   constructor(
     private voltar: Router, 
     private provider: APIs,
@@ -30,7 +31,6 @@ export class AddUsuarioPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('A aceitação do ser humano ao ser posto a prova depende do cocô!!')
     this.actRouter.params.subscribe((data:any) => {
 
     });
@@ -67,9 +67,11 @@ export class AddUsuarioPage implements OnInit {
         senha: this.senha,
         cargo: this.cargo,
       }
-      this.provider.dadosApi(dados, 'usuarios/inserir.php').subscribe(data => {
+      this.provider.dadosApi(dados, 'usuarios/inserir.php').subscribe((data: any) => {
+        console.log(data['success']);
         this.voltar.navigate(['usuarios']);
-        this.mensagemDadosAlterados();
+        
+        //this.mensagemDadosAlterados();
       });
     });
   }
@@ -77,7 +79,7 @@ export class AddUsuarioPage implements OnInit {
   onSelectFocus() {
     const selectOptions = document.querySelectorAll('ion-select-option');
     selectOptions.forEach((option) => {
-      option.removeAttribute('aria-hidden'); // Garante que o foco não seja bloqueado
+      // option.removeAttribute('aria-hidden'); // Garante que o foco não seja bloqueado
     });
   }
   
