@@ -18,6 +18,6 @@ export class UsuariosPage implements OnInit {
   ngOnInit() {
   }
   addUsuarios(){
-    this.adUsuario.navigate(['add-usuario'])
+    this.adUsuario.navigate(['/add-usuario']);
   }
 }

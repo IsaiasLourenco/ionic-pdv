@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideIonicAngular } from '@ionic/angular/standalone';
+import './icons'; // ← Isso deve estar antes de bootstrapApplication
 
 bootstrapApplication(AppComponent, {
   providers: [
