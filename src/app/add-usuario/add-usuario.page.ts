@@ -71,7 +71,7 @@ export class AddUsuarioPage implements OnInit {
         console.log(data['success']);
         this.voltar.navigate(['usuarios']);
         
-        //this.mensagemDadosAlterados();
+        
       });
     });
   }
@@ -79,7 +79,7 @@ export class AddUsuarioPage implements OnInit {
   onSelectFocus() {
     const selectOptions = document.querySelectorAll('ion-select-option');
     selectOptions.forEach((option) => {
-      // option.removeAttribute('aria-hidden'); // Garante que o foco não seja bloqueado
+      
     });
   }
   

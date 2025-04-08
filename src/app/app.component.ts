@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -17,5 +17,15 @@ export class AppComponent {
    
   ];
 
-  public appPages = this.menuAdm; // <- Aqui está a correção  
+  public appPages = this.menuAdm;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur(); // tira o foco de quem tiver
+        }
+      }
+    });
+  }
 }
